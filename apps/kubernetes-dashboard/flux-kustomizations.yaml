@@ -1,0 +1,33 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubernetes-dashboard
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./apps/kubernetes-dashboard/helm
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2
+      kind: HelmRelease
+      name: kubernetes-dashboard
+      namespace: flux-system
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubernetes-dashboard-ingress
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./apps/kubernetes-dashboard/ingress
+  prune: true
+  dependsOn:
+    - name: kubernetes-dashboard
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+
