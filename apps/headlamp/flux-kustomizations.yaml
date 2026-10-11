@@ -1,11 +1,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: kubernetes-dashboard
+  name: headlamp
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./apps/kubernetes-dashboard/helm
+  path: ./apps/headlamp/helm
   prune: true
   sourceRef:
     kind: GitRepository
@@ -13,20 +13,20 @@ spec:
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2
       kind: HelmRelease
-      name: kubernetes-dashboard
+      name: headlamp
       namespace: flux-system
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: kubernetes-dashboard-ingress
+  name: headlamp-ingress
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./apps/kubernetes-dashboard/ingress
+  path: ./apps/headlamp/ingress
   prune: true
   dependsOn:
-    - name: kubernetes-dashboard
+    - name: headlamp
   sourceRef:
     kind: GitRepository
     name: flux-system
