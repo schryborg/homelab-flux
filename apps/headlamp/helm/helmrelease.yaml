@@ -5,6 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  releaseName: headlamp #default: headlamp-headlamp -> <targetNamespace>-<HelmRelease>
   targetNamespace: headlamp
   chart:
     spec:
