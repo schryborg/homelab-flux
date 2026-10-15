@@ -15,8 +15,8 @@ spec:
         kind: HelmRepository
         name: headlamp
         namespace: flux-system
-  install:
-    createNamespace: true
+  # install:
+  #   createNamespace: true
   # values:
   #   config:
   #     oidc:
