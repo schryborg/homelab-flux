@@ -1,0 +1,22 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: infisical-db
+  namespace: infisical-db
+spec:
+  # Number of instances (1 primary + N replicas)
+  instances: 3
+
+  # PostgreSQL version
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.6
+
+  # Bootstrap: initialize from scratch
+  bootstrap:
+    initdb:
+      database: infisical-db
+      owner: infisical
+
+  # Storage configuration
+  storage:
+    size: 2Gi
+
