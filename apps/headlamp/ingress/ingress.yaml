@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: headlamp.schryborg.de
+    - host: headlamp.k3s.schryborg.de
       http:
         paths:
           - path: /
