@@ -126,10 +126,10 @@ credentials secrets automatically. For a cluster named `<cluster>` in namespace
 - Application owner secret: `<cluster>-app` (user is the `owner` value)
 - Superuser secret: `<cluster>-superuser` (if default superuser access is enabled)
 
-Retrieve the owner password (e.g., for `infisical-db` in `infisical-db`):
+Retrieve the owner password (e.g., for `infisical-db` in `infisical`):
 
 ```bash
-kubectl get secret -n infisical-db infisical-db-app -o jsonpath='{.data.password}' | base64 -d
+kubectl get secret -n infisical infisical-db-app -o jsonpath='{.data.password}' | base64 -d
 ```
 
 To use this in a workload, reference the secret directly instead of copying the
@@ -167,6 +167,10 @@ env:
 2. Include it in `apps/kustomization.yaml`.
 3. Use component-level Flux Kustomizations to reconcile its manifests; separate Helm resources and dependent resources (such as ingress) when they require distinct ordering or reconciliation paths.
 4. Validate the parent entrypoint and all relevant manifest directories with `kubectl kustomize`.
+
+## Known Issues / TODO
+
+- **Infisical database shares the application namespace.** The CNPG cluster for Infisical currently lives in the `infisical` namespace alongside the application, rather than in a dedicated `infisical-db` namespace as the repository convention prefers. This is a workaround because the `infisical-standalone` Helm chart references the database connection URI via `secretKeyRef`, and Kubernetes does not allow pods to read Secrets from another namespace. Once a cross-namespace secret mechanism such as External Secrets Operator or SealedSecrets is available in the cluster, the database should be moved back to its own namespace.
 
 ## Contact / Notes
 
