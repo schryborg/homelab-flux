@@ -7,6 +7,9 @@ spec:
   interval: 10m0s
   path: ./apps
   prune: true
+  dependsOn:
+    - name: infra-controllers
+    - name: databases
   sourceRef:
     kind: GitRepository
     name: flux-system

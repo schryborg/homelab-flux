@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: infisical-db
-  namespace: infisical-db
+  namespace: infisical
 spec:
   # Number of instances (1 primary + N replicas)
   instances: 3
