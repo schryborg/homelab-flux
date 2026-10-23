@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: infisical.k3s.schryborg.de
+    - host: infisical.schryborg.de
       http:
         paths:
           - path: /
