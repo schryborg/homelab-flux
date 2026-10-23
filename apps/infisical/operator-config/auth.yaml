@@ -1,0 +1,19 @@
+apiVersion: secrets.infisical.com/v1beta1
+kind: InfisicalAuth
+metadata:
+  name: default
+  namespace: infisical-operator
+spec:
+  method: universal
+  infisicalConnectionRef:
+    name: default
+    namespace: infisical-operator
+  universal:
+    clientIdRef:
+      name: infisical-operator-auth
+      namespace: infisical-operator
+      key: clientId
+    clientSecretRef:
+      name: infisical-operator-auth
+      namespace: infisical-operator
+      key: clientSecret
