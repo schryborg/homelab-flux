@@ -185,3 +185,4 @@ data:
         format: # optional, Intl.NumberFormat options
           maximumFractionDigits: 1
   docker.yaml: ""
+  proxmox.yaml: ""

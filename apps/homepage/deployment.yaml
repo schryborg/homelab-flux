@@ -24,8 +24,8 @@ spec:
       enableServiceLinks: true
       containers:
         - name: homepage
-          image: "ghcr.io/gethomepage/homepage:latest"
-          imagePullPolicy: Always
+          image: "ghcr.io/gethomepage/homepage:v2.7.0"
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -37,17 +37,11 @@ spec:
             seccompProfile:
               type: RuntimeDefault
           env:
-            - name: MY_POD_IP
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
-            - name: HOMEPAGE_HOSTNAME
+            - name: HOMEPAGE_ALLOWED_HOSTS
               valueFrom:
                 secretKeyRef:
                   name: homepage-infisical-secrets
-                  key: HOMEPAGE_HOSTNAME
-            - name: HOMEPAGE_ALLOWED_HOSTS
-              value: "$(MY_POD_IP):3000,$(HOMEPAGE_ALLOWED_HOSTS)" # Include the ingress hostname in Homepage's host allowlist.
+                  key: HOMEPAGE_ALLOWED_HOSTS
           ports:
             - name: http
               containerPort: 3000
@@ -74,6 +68,9 @@ spec:
             - mountPath: /app/config/kubernetes.yaml
               name: homepage-config
               subPath: kubernetes.yaml
+            - mountPath: /app/config/proxmox.yaml
+              name: homepage-config
+              subPath: proxmox.yaml
             - mountPath: /app/config/services.yaml
               name: homepage-config
               subPath: services.yaml
