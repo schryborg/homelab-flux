@@ -7,11 +7,11 @@ metadata:
 spec:
   allowScheduling: true
   disks:
-    default-disk:
+    default-disk-53f8d85fa81fefb3:
       allowScheduling: false
       evictionRequested: false
-      path: /var/lib/longhorn
-      storageReserved: 0
+      path: /var/lib/longhorn/
+      storageReserved: 10081017446
       tags: []
     disk1:
       allowScheduling: true
@@ -28,11 +28,11 @@ metadata:
 spec:
   allowScheduling: true
   disks:
-    default-disk:
+    default-disk-53f8d85fa81fefb3:
       allowScheduling: false
       evictionRequested: false
-      path: /var/lib/longhorn
-      storageReserved: 0
+      path: /var/lib/longhorn/
+      storageReserved: 10081017446
       tags: []
     disk1:
       allowScheduling: true
@@ -49,11 +49,11 @@ metadata:
 spec:
   allowScheduling: true
   disks:
-    default-disk:
+    default-disk-53f8d85fa81fefb3:
       allowScheduling: false
       evictionRequested: false
-      path: /var/lib/longhorn
-      storageReserved: 0
+      path: /var/lib/longhorn/
+      storageReserved: 10081017446
       tags: []
     disk1:
       allowScheduling: true
