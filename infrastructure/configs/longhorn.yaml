@@ -7,12 +7,6 @@ metadata:
 spec:
   allowScheduling: true
   disks:
-    default:
-      allowScheduling: true
-      evictionRequested: false
-      path: /var/lib/longhorn
-      storageReserved: 0
-      tags: []
     disk1:
       allowScheduling: true
       evictionRequested: false
@@ -28,12 +22,6 @@ metadata:
 spec:
   allowScheduling: true
   disks:
-    default:
-      allowScheduling: true
-      evictionRequested: false
-      path: /var/lib/longhorn
-      storageReserved: 0
-      tags: []
     disk1:
       allowScheduling: true
       evictionRequested: false
@@ -49,12 +37,6 @@ metadata:
 spec:
   allowScheduling: true
   disks:
-    default:
-      allowScheduling: true
-      evictionRequested: false
-      path: /var/lib/longhorn
-      storageReserved: 0
-      tags: []
     disk1:
       allowScheduling: true
       evictionRequested: false
