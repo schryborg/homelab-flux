@@ -7,11 +7,17 @@ metadata:
 spec:
   allowScheduling: true
   disks:
+    default-disk:
+      allowScheduling: false
+      evictionRequested: false
+      path: /var/lib/longhorn
+      storageReserved: 0
+      tags: []
     disk1:
       allowScheduling: true
       evictionRequested: false
       path: /mnt/longhorn-disk1
-      storageReserved: 0
+      storageReserved: 10737418240
       tags: []
 ---
 apiVersion: longhorn.io/v1beta2
@@ -22,11 +28,17 @@ metadata:
 spec:
   allowScheduling: true
   disks:
+    default-disk:
+      allowScheduling: false
+      evictionRequested: false
+      path: /var/lib/longhorn
+      storageReserved: 0
+      tags: []
     disk1:
       allowScheduling: true
       evictionRequested: false
       path: /mnt/longhorn-disk1
-      storageReserved: 0
+      storageReserved: 10737418240
       tags: []
 ---
 apiVersion: longhorn.io/v1beta2
@@ -37,9 +49,15 @@ metadata:
 spec:
   allowScheduling: true
   disks:
+    default-disk:
+      allowScheduling: false
+      evictionRequested: false
+      path: /var/lib/longhorn
+      storageReserved: 0
+      tags: []
     disk1:
       allowScheduling: true
       evictionRequested: false
       path: /mnt/longhorn-disk1
-      storageReserved: 0
+      storageReserved: 10737418240
       tags: []
