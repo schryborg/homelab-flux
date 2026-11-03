@@ -4,3 +4,4 @@ resources:
   - metallb/
   - cnpg/
   - sealed-secrets/
+  - longhorn/
