@@ -1,0 +1,63 @@
+---
+apiVersion: longhorn.io/v1beta2
+kind: Node
+metadata:
+  name: k3s-worker1
+  namespace: longhorn-system
+spec:
+  allowScheduling: true
+  disks:
+    default:
+      allowScheduling: true
+      evictionRequested: false
+      path: /var/lib/longhorn
+      storageReserved: 0
+      tags: []
+    disk1:
+      allowScheduling: true
+      evictionRequested: false
+      path: /mnt/longhorn-disk1
+      storageReserved: 0
+      tags: []
+---
+apiVersion: longhorn.io/v1beta2
+kind: Node
+metadata:
+  name: k3s-worker2
+  namespace: longhorn-system
+spec:
+  allowScheduling: true
+  disks:
+    default:
+      allowScheduling: true
+      evictionRequested: false
+      path: /var/lib/longhorn
+      storageReserved: 0
+      tags: []
+    disk1:
+      allowScheduling: true
+      evictionRequested: false
+      path: /mnt/longhorn-disk1
+      storageReserved: 0
+      tags: []
+---
+apiVersion: longhorn.io/v1beta2
+kind: Node
+metadata:
+  name: k3s-worker3
+  namespace: longhorn-system
+spec:
+  allowScheduling: true
+  disks:
+    default:
+      allowScheduling: true
+      evictionRequested: false
+      path: /var/lib/longhorn
+      storageReserved: 0
+      tags: []
+    disk1:
+      allowScheduling: true
+      evictionRequested: false
+      path: /mnt/longhorn-disk1
+      storageReserved: 0
+      tags: []
