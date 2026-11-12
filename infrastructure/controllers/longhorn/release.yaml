@@ -23,7 +23,7 @@ spec:
       retries: 3
   values:
     persistence:
-      defaultClass: true
+      defaultClass: false
     csi:
       kubeletRootDir: /var/lib/rancher/k3s/agent/kubelet
 
