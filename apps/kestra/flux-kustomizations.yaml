@@ -32,6 +32,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
+  timeout: 20m
   path: ./apps/kestra/app
   prune: true
   wait: true

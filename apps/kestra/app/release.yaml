@@ -5,6 +5,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
+  install:
+    timeout: 15m
+  upgrade:
+    timeout: 15m
   releaseName: kestra #default: kestra-kestra -> <targetNamespace>-<HelmRelease>
   targetNamespace: kestra
   chart:
@@ -18,6 +22,10 @@ spec:
   values:
     common:
       replicas: 1
+      startupProbe:
+        periodSeconds: 10
+        timeoutSeconds: 3
+        failureThreshold: 60
       strategy:
         type: Recreate
       extraVolumes:
