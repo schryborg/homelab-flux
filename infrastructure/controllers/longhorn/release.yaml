@@ -25,5 +25,5 @@ spec:
     persistence:
       defaultClass: false
     csi:
-      kubeletRootDir: /var/lib/rancher/k3s/agent/kubelet
+      kubeletRootDir: /var/lib/kubelet
 
