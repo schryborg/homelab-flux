@@ -5,3 +5,4 @@ resources:
   - address-pool.yaml
   - l2-advertisement.yaml
   - longhorn.yaml
+  - infisical-operator/

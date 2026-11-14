@@ -5,3 +5,4 @@ resources:
   - cnpg/
   - sealed-secrets/
   - longhorn/
+  - infisical-operator/
