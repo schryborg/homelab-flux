@@ -28,6 +28,12 @@ spec:
         failureThreshold: 60
       strategy:
         type: Recreate
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+      podSecurityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
       extraVolumes:
         - name: kestra-storage
           persistentVolumeClaim:
