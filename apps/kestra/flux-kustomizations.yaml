@@ -9,21 +9,9 @@ spec:
   path: ./apps/kestra/secrets
   prune: true
   wait: true
-  dependsOn:
-    - name: infisical-operator-config
   sourceRef:
     kind: GitRepository
     name: flux-system
-  healthCheckExprs:
-    - apiVersion: secrets.infisical.com/v1beta1
-      kind: InfisicalStaticSecret
-      current: >-
-        has(status.conditions) &&
-        status.conditions.exists(
-          c,
-          c.type == 'secrets.infisical.com/LastReconcileStatus' &&
-          c.status == 'True'
-        )
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -32,7 +20,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  timeout: 20m
   path: ./apps/kestra/app
   prune: true
   wait: true
