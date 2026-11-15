@@ -25,7 +25,7 @@ spec:
       AUTH_PROVIDERS: "oidc"
       AUTH_LOGOUT_REDIRECT_URL: "https://authentik.schryborg.de/application/o/homarr/end-session/"
       AUTH_SESSION_EXPIRY_TIME: "180d"
-      AUTH_OIDC_ISSUER: "https://authentik.schryborg.de/application/o/homarr"
+      AUTH_OIDC_ISSUER: "https://authentik.schryborg.de/application/o/homarr/"
       AUTH_OIDC_CLIENT_NAME: "authentik"
       AUTH_OIDC_AUTO_LOGIN: "true"
       AUTH_OIDC_SCOPE_OVERWRITE: "openid email profile groups"
