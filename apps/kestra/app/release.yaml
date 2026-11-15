@@ -55,6 +55,10 @@ spec:
             type: postgres
           repository:
             type: postgres
+          server:
+            basic-auth:
+              username: ${KESTRA_UI_USER}
+              password: ${KESTRA_UI_PASSWORD}
         datasources:
           postgres:
             url: jdbc:postgresql://kestra-db-rw:5432/kestra-db
