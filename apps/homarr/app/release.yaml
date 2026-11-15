@@ -1,0 +1,54 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: homarr
+  namespace: flux-system
+spec:
+  interval: 1h
+  install:
+    timeout: 15m
+  upgrade:
+    timeout: 15m
+  releaseName: homarr #default: homarr-homarr -> <targetNamespace>-<HelmRelease>
+  targetNamespace: homarr
+  chart:
+    spec:
+      chart: homarr
+      version: "8.43.1"
+      sourceRef:
+        kind: HelmRepository
+        name: homarr
+        namespace: flux-system
+  values:
+    env:
+      TZ: "Europe/Berlin"
+      AUTH_PROVIDERS: "oidc"
+      AUTH_LOGOUT_REDIRECT_URL: "https://authentik.schryborg.de/application/o/homarr/end-session/"
+      AUTH_SESSION_EXPIRY_TIME: "180d"
+      AUTH_OIDC_ISSUER: https://authentik.schryborg.de/application/o/homarr
+      AUTH_OIDC_CLIENT_NAME: "authentik"
+      AUTH_OIDC_AUTO_LOGIN: "true"
+      AUTH_OIDC_SCOPE_OVERWRITE: "openid email profile groups"
+      AUTH_OIDC_GROUPS_ATTRIBUTE: "groups"
+      # AUTH_OIDC_NAME_ATTRIBUTE_OVERWRITE:
+    envSecrets:
+      authOidcCredentials:
+        existingSecret: "homarr-infisical-secrets"
+        oidcClientId: "oidc-client-id"
+        oidcClientSecret: "oidc-client-secret"
+      dbEncryption:
+        existingSecret: "homarr-infisical-secrets"
+        key: "db-encryption-key"
+    ingress:
+      enabled: true
+      ingressClassName: "traefik"
+      hosts:
+        - host: homarr.schryborg.de
+          paths:
+            - path: /
+    persistence:
+      homarrDatabase:
+        enabled: true
+        name: "homarr-database"
+        storageClassName: "longhorn"
+        size: "50Mi"
