@@ -6,3 +6,4 @@ resources:
   - sealed-secrets/
   - longhorn/
   - infisical-operator/
+  - cert-manager/

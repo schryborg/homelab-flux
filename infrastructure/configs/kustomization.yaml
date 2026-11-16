@@ -6,3 +6,4 @@ resources:
   - l2-advertisement.yaml
   - longhorn.yaml
   - infisical-operator/
+  - cert-manager/
